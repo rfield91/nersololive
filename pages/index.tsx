@@ -1,41 +1,26 @@
 import Head from "next/head";
-import { ClassResult } from "../common/types";
-import ClassLinks from "../components/ClassLinks";
+import { ResultsJson } from "../common/types";
 import ClassResults from "../components/ClassResults";
-
-type Results = {
-    results: { [name: string]: ClassResult[] };
-};
+import ResultsNavigation from "../components/ResultsNavigation";
 
 export async function getServerSideProps() {
-    const res = await fetch(process.env.RESULTS_JSON_URL);
-    const json: Results = await res.json();
+    const res = await fetch(process.env.CLASS_RESULTS_JSON_URL);
+    const json: ResultsJson = await res.json();
 
     return { props: { results: json.results } };
 }
 
-const Home = ({ results }: Results) => {
-    const classes = Object.keys(results);
-
-    const classResults = classes.map((classKey) => {
-        return (
-            <ClassResults
-                className={classKey}
-                results={results[classKey]}
-                key={classKey}
-            />
-        );
-    });
-
+const Home = ({ results }: ResultsJson) => {
     return (
-        <div className="bg-slate-200">
+        <div className="bg-slate-300">
             <Head>
                 <title>NER SoloLive</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <ClassLinks classes={classes} />
-            <div>{classResults}</div>
+            <ResultsNavigation activePage="classResults" />
+
+            <ClassResults results={results} />
         </div>
     );
 };
