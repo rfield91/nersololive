@@ -28,16 +28,14 @@ const Home = ({ results }: Results) => {
     });
 
     return (
-        <div>
+        <div className="bg-slate-200">
             <Head>
                 <title>NER SoloLive</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div className="bg-slate-200">
-                <ClassLinks classes={classes} />
-                {classResults}
-            </div>
+            <ClassLinks classes={classes} />
+            <div>{classResults}</div>
         </div>
     );
 };
