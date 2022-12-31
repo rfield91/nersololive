@@ -13,7 +13,7 @@ const ClassLinks = ({ classes }: { classes: string[] }) => {
         );
     });
     return (
-        <div className="bg-white shadow-lg mt-10 mb-4 mx-2">
+        <div className="bg-white shadow-lg p-2">
             <div className="text-center font-bold text-lg p-2">Classes</div>
             <div className="grid grid-cols-12">{classLinks}</div>
         </div>
