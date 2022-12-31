@@ -1,13 +1,18 @@
 export interface Run {
     number: number;
-    time: string;
+    status: string;
+    time: number;
+    coneCount: number;
     isBest: boolean;
 }
 
 export interface RunInfo {
-    total: string;
-    paxTime: string;
-    diff: string;
+    total: number;
+    paxTime: number;
+    diff?: number;
+    cleanCount: number;
+    coneCount: number;
+    dnfCount: number;
     runs: Run[];
 }
 export interface ClassResult {
@@ -16,7 +21,11 @@ export interface ClassResult {
     color: string;
     name: string;
     number: string;
-    position: number;
+    position: string;
     paxPosition: number;
     runInfo: RunInfo;
 }
+
+export type ResultsJson = {
+    results: { [name: string]: ClassResult[] };
+};

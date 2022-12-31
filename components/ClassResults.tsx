@@ -1,30 +1,24 @@
-import { ClassResult } from "../common/types";
-import Link from "next/link";
-import ClassResulsEntry from "./ClassResultsEntry";
+import { ResultsJson } from "../common/types";
+import IndividualClassResults from "./IndividualClassResults";
+import ClassLinks from "./ClassLinks";
 
-const ClassResults = ({
-    className,
-    results,
-}: {
-    className: string;
-    results: ClassResult[];
-}) => {
-    const entries = results.map((entry) => {
+const ClassResults = ({ results }: ResultsJson) => {
+    const classes = Object.keys(results);
+
+    const classResults = classes.map((classKey) => {
         return (
-            <ClassResulsEntry
-                entry={entry}
-                key={`${entry.name}-${entry.number}`}
+            <IndividualClassResults
+                className={classKey}
+                results={results[classKey]}
+                key={classKey}
             />
         );
     });
 
     return (
-        <div key={className} id={className}>
-            <h2 className="cursor-pointer bg-slate-800 p-2 text-center text-lg font-bold tracking-widest text-white">
-                <Link href={`#${className}`}>{className}</Link>
-            </h2>
-
-            <div className="class-results">{entries}</div>
+        <div>
+            <ClassLinks classes={classes} />
+            <div>{classResults}</div>
         </div>
     );
 };
