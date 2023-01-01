@@ -1,8 +1,8 @@
-import { ResultsJson } from "../common/types";
+import { ClassResultsJson } from "../common/types";
 import IndividualClassResults from "./IndividualClassResults";
 import ClassLinks from "./ClassLinks";
 
-const ClassResults = ({ results }: ResultsJson) => {
+const ClassResults = ({ results }: ClassResultsJson) => {
     const classes = Object.keys(results);
 
     const classResults = classes.map((classKey) => {

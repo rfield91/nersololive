@@ -24,8 +24,13 @@ export interface ClassResult {
     position: string;
     paxPosition: number;
     runInfo: RunInfo;
+    toFirst: number;
 }
 
-export type ResultsJson = {
+export type ClassResultsJson = {
     results: { [name: string]: ClassResult[] };
+};
+
+export type PaxResultsJson = {
+    results: ClassResult[];
 };
