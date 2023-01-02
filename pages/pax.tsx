@@ -2,6 +2,7 @@ import Head from "next/head";
 import { ClassResult, PaxResultsJson } from "../common/types";
 import PaxResults from "../components/PaxResults";
 import ResultsNavigation from "../components/ResultsNavigation";
+import ScrollToTop from "../components/ScrollToTop";
 
 export async function getServerSideProps() {
     const res = await fetch(process.env.PAX_RESULTS_JSON_URL);
@@ -21,6 +22,8 @@ const Pax = ({ results }: { results: ClassResult[] }) => {
             <ResultsNavigation activePage="paxResults" />
 
             <PaxResults results={results} />
+
+            <ScrollToTop />
         </div>
     );
 };

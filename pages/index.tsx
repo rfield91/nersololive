@@ -2,6 +2,7 @@ import Head from "next/head";
 import { ClassResultsJson } from "../common/types";
 import ClassResults from "../components/ClassResults";
 import ResultsNavigation from "../components/ResultsNavigation";
+import ScrollToTop from "../components/ScrollToTop";
 
 export async function getServerSideProps() {
     const res = await fetch(process.env.CLASS_RESULTS_JSON_URL);
@@ -21,6 +22,8 @@ const Home = ({ results }: ClassResultsJson) => {
             <ResultsNavigation activePage="classResults" />
 
             <ClassResults results={results} />
+
+            <ScrollToTop />
         </div>
     );
 };
