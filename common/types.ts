@@ -25,6 +25,7 @@ export interface ClassResult {
     paxPosition: number;
     runInfo: RunInfo;
     toFirst: number;
+    toNext: number;
 }
 
 export type ClassResultsJson = {

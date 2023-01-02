@@ -17,23 +17,25 @@ const PaxEntry = ({ entry }: { entry: ClassResult }) => {
                     <p className="text-xs text-slate-600">{entry.car}</p>
                     <p className="text-xs text-slate-500">{entry.color}</p>
                 </div>
-                <div className="col-span-4 text-center">
-                    <div className="text-xs text-slate-600">Raw / PAX</div>
-                    <div>
-                        {entry.runInfo.total} / {entry.runInfo.paxTime}
-                    </div>
-                    {entry.toFirst ? (
+                <div className="col-span-2 text-center">
+                    <div className="text-xs text-slate-600">PAX</div>
+                    <div>{entry.runInfo.paxTime}</div>
+                    <div className="text-xs text-slate-600">Raw</div>
+                    <div>{entry.runInfo.total}</div>
+                </div>
+                <div className="col-span-2 text-center">
+                    {entry.toFirst && entry.toNext ? (
                         <>
-                            <div className="text-xs text-slate-600">
-                                To First
-                            </div>
+                            <div className="text-xs text-slate-600">First</div>
                             <div>
                                 {entry.toFirst ? entry.toFirst.toFixed(3) : ""}
                             </div>
+                            <div className="text-xs text-slate-600">Next</div>
+                            <div>
+                                {entry.toNext ? entry.toNext.toFixed(3) : ""}
+                            </div>
                         </>
-                    ) : (
-                        <></>
-                    )}
+                    ) : null}
                 </div>
             </div>
         </div>
