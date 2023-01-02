@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
     const [visible, setVisible] = useState(false);
@@ -14,7 +14,9 @@ const ScrollToTop = () => {
         });
     };
 
-    window.addEventListener("scroll", toggleVisible);
+    useEffect(() => {
+        window.addEventListener("scroll", toggleVisible);
+    });
 
     return (
         <button
