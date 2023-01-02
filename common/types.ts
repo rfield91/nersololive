@@ -9,10 +9,13 @@ export interface Run {
 export interface RunInfo {
     total: number;
     paxTime: number;
-    diff?: number;
     cleanCount: number;
     coneCount: number;
     dnfCount: number;
+    toFirstInClass: number;
+    toNextInClass: number;
+    toFirstInPax: number;
+    toNextInPax: number;
     runs: Run[];
 }
 export interface ClassResult {
@@ -24,8 +27,6 @@ export interface ClassResult {
     position: string;
     paxPosition: number;
     runInfo: RunInfo;
-    toFirst: number;
-    toNext: number;
 }
 
 export type ClassResultsJson = {
