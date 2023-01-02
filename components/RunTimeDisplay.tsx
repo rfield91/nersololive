@@ -1,20 +1,22 @@
 import { Run } from "../common/types";
 
 const RunTimeDisplay = ({ run }: { run: Run }) => {
-    let runDisplay = "";
+    if (run.status == "DIRTY")
+        return (
+            <span>
+                {run.time.toFixed(3)}+{run.coneCount}
+            </span>
+        );
 
-    switch (run.status) {
-        case "DIRTY":
-            runDisplay = `${run.time.toFixed(3)}+${run.coneCount}`;
-            break;
-        case "CLEAN":
-            runDisplay = run.time.toFixed(3).toString();
-            break;
-        default:
-            runDisplay = `${run.time.toFixed(3)} - ${run.status}`;
-    }
+    if (run.status == "CLEAN")
+        return <span>{run.time.toFixed(3).toString()}</span>;
 
-    return <>{runDisplay}</>;
+    return (
+        <span>
+            {run.time.toFixed(3)}{" "}
+            <span className="text-xs">({run.status})</span>
+        </span>
+    );
 };
 
 export default RunTimeDisplay;

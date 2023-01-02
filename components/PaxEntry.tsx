@@ -11,29 +11,36 @@ const PaxEntry = ({ entry }: { entry: ClassResult }) => {
                     <div>{entry.position}</div>
                 </div>
                 <div className="col-span-6">
-                    <div>
-                        {entry.carClass} #{entry.number} - {entry.name}
+                    <div className="text-xs">
+                        {entry.carClass} #{entry.number}
                     </div>
-                    <p className="text-xs text-slate-600">{entry.car}</p>
-                    <p className="text-xs text-slate-500">{entry.color}</p>
+                    <div className="text-sm">{entry.name}</div>
+                    <div className="text-xs text-slate-600">{entry.car}</div>
+                    <div className="text-xs text-slate-500">{entry.color}</div>
                 </div>
-                <div className="col-span-4 text-center">
-                    <div className="text-xs text-slate-600">Raw / PAX</div>
-                    <div>
-                        {entry.runInfo.total} / {entry.runInfo.paxTime}
-                    </div>
-                    {entry.toFirst ? (
+                <div className="col-span-2 text-center">
+                    <div className="text-xs text-slate-600">PAX</div>
+                    <div>{entry.runInfo.paxTime}</div>
+                    <div className="text-xs text-slate-600">Raw</div>
+                    <div>{entry.runInfo.total}</div>
+                </div>
+                <div className="col-span-2 text-center">
+                    {entry.runInfo.toFirstInPax && entry.runInfo.toNextInPax ? (
                         <>
-                            <div className="text-xs text-slate-600">
-                                To First
-                            </div>
+                            <div className="text-xs text-slate-600">First</div>
                             <div>
-                                {entry.toFirst ? entry.toFirst.toFixed(3) : ""}
+                                {entry.runInfo.toFirstInPax
+                                    ? entry.runInfo.toFirstInPax.toFixed(3)
+                                    : ""}
+                            </div>
+                            <div className="text-xs text-slate-600">Next</div>
+                            <div>
+                                {entry.runInfo.toNextInPax
+                                    ? entry.runInfo.toNextInPax.toFixed(3)
+                                    : ""}
                             </div>
                         </>
-                    ) : (
-                        <></>
-                    )}
+                    ) : null}
                 </div>
             </div>
         </div>

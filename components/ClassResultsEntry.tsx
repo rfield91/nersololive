@@ -30,16 +30,17 @@ const ClassResulsEntry = ({ entry }: { entry: ClassResult }) => {
                     </div>
                 </div>
                 <div className="col-span-6">
-                    <div>
-                        #{entry.number} - {entry.name}
+                    <div className="text-xs">
+                        {entry.carClass} #{entry.number}
                     </div>
-                    <p className="text-xs text-slate-600">{entry.car}</p>
-                    <p className="text-xs text-slate-500">{entry.color}</p>
+                    <div className="text-xs">{entry.name}</div>
+                    <div className="text-xs text-slate-600">{entry.car}</div>
+                    <div className="text-xs text-slate-500">{entry.color}</div>
                 </div>
-                <div className="col-span-4 text-center">
+                <div className="col-span-2 text-center">
                     <div>
                         <div className="text-xs text-slate-600">Best</div>
-                        <div>
+                        <div className="text-sm">
                             {entry.runInfo.total == null
                                 ? "N/A"
                                 : entry.runInfo.total.toFixed(3)}
@@ -47,7 +48,7 @@ const ClassResulsEntry = ({ entry }: { entry: ClassResult }) => {
                     </div>
                     <div>
                         <div className="text-xs text-slate-500">Last</div>
-                        <div>
+                        <div className="text-sm">
                             {entry.runInfo.runs.length > 0 ? (
                                 <RunTimeDisplay
                                     run={
@@ -61,6 +62,25 @@ const ClassResulsEntry = ({ entry }: { entry: ClassResult }) => {
                             )}
                         </div>
                     </div>
+                </div>
+                <div className="col-span-2 text-center">
+                    {entry.runInfo.toFirstInClass &&
+                    entry.runInfo.toNextInClass ? (
+                        <>
+                            <div className="text-xs text-slate-600">First</div>
+                            <div className="text-sm">
+                                {entry.runInfo.toFirstInClass
+                                    ? entry.runInfo.toFirstInClass.toFixed(3)
+                                    : ""}
+                            </div>
+                            <div className="text-xs text-slate-600">Next</div>
+                            <div className="text-sm">
+                                {entry.runInfo.toNextInClass
+                                    ? entry.runInfo.toNextInClass.toFixed(3)
+                                    : ""}
+                            </div>
+                        </>
+                    ) : null}
                 </div>
                 <div className={`col-span-12 ${showRuns ? "" : "hidden"}`}>
                     <RunData runInfo={entry.runInfo} />
