@@ -13,7 +13,7 @@ const ClassResulsEntry = ({ entry }: { entry: ClassResult }) => {
     return (
         <div
             key={entry.name}
-            className={`cursor-pointer m-2 bg-white shadow-lg ${
+            className={`cursor-pointer m-2 bg-white shadow-lg lg:mx-0 ${
                 entry.paxPosition == 1 ? "bg-orange-100" : ""
             }`}
             onClick={handleToggleRuns}
