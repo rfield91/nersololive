@@ -4,7 +4,9 @@ import RunTimeDisplay from "./RunTimeDisplay";
 const RunDisplay = ({ run }: { run: Run }) => {
     return (
         <div
-            className={`basis-1/3 p-2 text-xs ${run.isBest ? "font-bold" : ""}`}
+            className={`basis-1/3 lg:basis-1/6 p-2 text-xs ${
+                run.isBest ? "font-bold" : ""
+            }`}
         >
             {run.number}: <RunTimeDisplay run={run} />
         </div>

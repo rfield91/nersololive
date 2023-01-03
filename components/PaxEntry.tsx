@@ -2,7 +2,7 @@ import { ClassResult } from "../common/types";
 
 const PaxEntry = ({ entry }: { entry: ClassResult }) => {
     return (
-        <div className="m-2 bg-white shadow-lg">
+        <div className="m-2 lg:mx-0 bg-white shadow-lg">
             <div className="grid grid-cols-12 gap-1">
                 <div className="col-span-2 text-center">
                     <div className="text-xs text-slate-600">PAX</div>
