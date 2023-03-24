@@ -6,7 +6,7 @@ import ScrollToTop from "../components/ScrollToTop";
 
 function SoloLive({ Component, pageProps }: AppProps) {
     return (
-        <div className="bg-slate-200 w-full">
+        <div className="bg-slate-200 pb-20 min-h-screen">
             <div className="lg:w-1/2 mx-auto">
                 <Head>
                     <title>NER SoloLive</title>
