@@ -10,7 +10,7 @@ function SoloLive({ Component, pageProps }: AppProps) {
             <div className="lg:w-1/2 mx-auto">
                 <Head>
                     <title>NER SoloLive</title>
-                    <link rel="icon" href="/favicon.ico" />
+                    <link rel="icon" href="/ner150.png" />
                 </Head>
 
                 <ResultsNavigation activePage={pageProps.activePage} />
