@@ -36,3 +36,28 @@ export type ClassResultsJson = {
 export type PaxResultsJson = {
     results: ClassResult[];
 };
+
+export interface EntryInfo {
+    name: string;
+    carClass: string;
+    number: number;
+    car: string;
+    color: string;
+}
+
+export interface ResultSummary {
+    position: number;
+    entryInfo: EntryInfo;
+    toFirst: number;
+    toNext: number;
+}
+
+export interface RawResult extends ResultSummary {
+    total: number;
+    time: number;
+    coneCount: number;
+}
+
+export type RawResultsJson = {
+    results: RawResult[];
+};
