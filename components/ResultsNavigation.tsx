@@ -12,6 +12,11 @@ const ResultsNavigation = ({ activePage }: { activePage: string }) => {
             name: "PAX",
             link: "/pax",
         },
+        {
+            key: "rawResults",
+            name: "Raw",
+            link: "/raw",
+        },
     ];
 
     const links = pages.map((page) => {
