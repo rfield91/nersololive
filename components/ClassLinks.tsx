@@ -1,22 +1,13 @@
 import Link from "next/link";
-import React, { Dispatch } from 'react';
 
 interface ClassLinksProps {
     classes: string[],
     filteredClasses: string[],
-    setFilteredClasses: Dispatch<((c: string[]) => string[]) | string[]>
+    toggleFilter: (c: string) => void,
+    clearFilters: () => void,
 }
 
-const ClassLinks = ({ classes, filteredClasses, setFilteredClasses }: ClassLinksProps) => {
-
-    const handleFilteredClasses = (name: string) => {
-        setFilteredClasses((current: string[]) => {
-            // remove item if it is already in the array, or add if it is not
-            const index = current.indexOf(name);
-            index === -1 ? current.push(name) : current.splice(index, 1);
-            return [...current];
-        })
-    }
+const ClassLinks = ({ classes, filteredClasses, toggleFilter, clearFilters }: ClassLinksProps) => {
 
     const noSelected = !filteredClasses.length;
     const showStyle = 'bg-blue-500 text-white';
@@ -28,7 +19,7 @@ const ClassLinks = ({ classes, filteredClasses, setFilteredClasses }: ClassLinks
             <Link
                 key={c}
                 href={`#`}
-                onClick={() => handleFilteredClasses(c)}
+                onClick={() => toggleFilter(c)}
                 className={`${selected || noSelected ? showStyle : hideStyle} font-bold col-span-2 m-1 text-center rounded-xl`}
             >
                 {c}
@@ -43,7 +34,7 @@ const ClassLinks = ({ classes, filteredClasses, setFilteredClasses }: ClassLinks
                 {!noSelected && <Link
                     key={`clear`}
                     href={`#`}
-                    onClick={() => setFilteredClasses([])}
+                    onClick={clearFilters}
                     className={`bg-orange-500 text-white font-bold col-span-2 col-start-11 m-1 text-center rounded-xl`}
                 >
                     Clear
