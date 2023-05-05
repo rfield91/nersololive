@@ -2,19 +2,28 @@ import { useState } from "react";
 import { ClassResultsJson } from "../common/types";
 import IndividualClassResults from "./IndividualClassResults";
 import ClassLinks from "./ClassLinks";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const ClassResults = ({ results }: ClassResultsJson) => {
     const classes = Object.keys(results);
 
-    const [filteredClasses, setFilteredClasses] = useState<string[]>([]);
+    // const [filteredClasses, setFilteredClasses] = useState<string[]>([]);
+    const defaultClasses: string[] = [];
+    const [filteredClasses, setFilteredClasses] = useLocalStorage<string[]>(
+        "filteredClasses",
+        defaultClasses
+    );
 
     const handleFilteredClasses = (toggleClass: string) => {
-        setFilteredClasses((current: string[]) => {
-            // remove item if it is already in the array, or add if it is not
-            const index = current.indexOf(toggleClass);
-            index === -1 ? current.push(toggleClass) : current.splice(index, 1);
-            return [...current];
-        });
+        const classesToUpdate = [...filteredClasses];
+
+        // remove item if it is already in the array, or add if it is not
+        const index = classesToUpdate.indexOf(toggleClass);
+        index === -1
+            ? classesToUpdate.push(toggleClass)
+            : classesToUpdate.splice(index, 1);
+
+        setFilteredClasses(classesToUpdate);
     };
 
     const clearFilteredClasses = () => {
