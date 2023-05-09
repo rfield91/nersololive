@@ -1,4 +1,4 @@
-import { ClassResult, PaxResultsJson } from "../common/types";
+import { ClassResult } from "common/types";
 import PaxEntry from "./PaxEntry";
 
 const PaxResults = ({ results }: { results: ClassResult[] }) => {

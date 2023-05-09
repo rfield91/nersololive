@@ -1,4 +1,4 @@
-import { Run } from "../common/types";
+import { Run } from "common/types";
 import RunTimeDisplay from "./RunTimeDisplay";
 
 const RunDisplay = ({ run }: { run: Run }) => {

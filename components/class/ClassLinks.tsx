@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 interface ClassLinksProps {
     classes: string[];
     filteredClasses: string[];
@@ -20,16 +18,15 @@ const ClassLinks = ({
     const classLinks = classes.map((c) => {
         const selected = filteredClasses.includes(c);
         return (
-            <Link
+            <div
                 key={c}
-                href={`#`}
                 onClick={() => toggleFilter(c)}
                 className={`${
                     selected || noSelected ? showStyle : hideStyle
-                } font-bold col-span-2 m-1 text-center rounded-xl`}
+                } font-bold col-span-2 m-1 text-center rounded-xl cursor-pointer`}
             >
                 {c}
-            </Link>
+            </div>
         );
     });
 
@@ -38,14 +35,13 @@ const ClassLinks = ({
             <div className="grid grid-cols-12">
                 {classLinks}
                 {!noSelected && (
-                    <Link
+                    <div
                         key={`clear`}
-                        href={`#`}
                         onClick={clearFilters}
-                        className={`bg-orange-500 text-white font-bold col-span-2 col-start-11 m-1 text-center rounded-xl`}
+                        className={`bg-orange-500 text-white font-bold col-span-2 col-start-11 m-1 text-center rounded-xl cursor-pointer`}
                     >
                         Clear
-                    </Link>
+                    </div>
                 )}
             </div>
         </div>
