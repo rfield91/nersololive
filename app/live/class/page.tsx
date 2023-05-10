@@ -1,10 +1,11 @@
+"use client";
 import { ClassResultsJson } from "common/types";
 import ClassResults from "components/class/ClassResults";
 
 async function getData() {
-    const res = await fetch(process.env.CLASS_RESULTS_JSON_URL, {
+    const res = await fetch(process.env.NEXT_PUBLIC_CLASS_RESULTS_JSON_URL, {
         next: {
-            revalidate: 10,
+            revalidate: 5,
         },
     });
     const json: ClassResultsJson = await res.json();

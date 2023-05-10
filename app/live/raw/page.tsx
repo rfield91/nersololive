@@ -1,10 +1,11 @@
+"use client";
 import { RawResultsJson } from "common/types";
 import RawResults from "components/raw/RawResults";
 
 async function getData() {
-    const res = await fetch(process.env.RAW_RESULTS_JSON_URL, {
+    const res = await fetch(process.env.NEXT_PUBLIC_RAW_RESULTS_JSON_URL, {
         next: {
-            revalidate: 10,
+            revalidate: 5,
         },
     });
     const json: RawResultsJson = await res.json();
