@@ -1,6 +1,8 @@
 import { ClassResult } from "../common/types";
 
 const PaxEntry = ({ entry }: { entry: ClassResult }) => {
+    const best = entry.runInfo.runs.find((e) => e.isBest);
+
     return (
         <div className="m-2 lg:mx-0 bg-white shadow-lg">
             <div className="grid grid-cols-12 gap-1">
@@ -22,7 +24,7 @@ const PaxEntry = ({ entry }: { entry: ClassResult }) => {
                     <div className="text-xs text-slate-600">PAX</div>
                     <div>{entry.runInfo.paxTime}</div>
                     <div className="text-xs text-slate-600">Raw</div>
-                    <div>{entry.runInfo.total}</div>
+                    <div>{best?.time}</div>
                 </div>
                 <div className="col-span-2 text-center">
                     {entry.runInfo.toFirstInPax && entry.runInfo.toNextInPax ? (
