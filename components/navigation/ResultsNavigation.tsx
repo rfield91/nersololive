@@ -23,8 +23,6 @@ const ResultsNavigation = () => {
         },
     ];
 
-    console.log(pathname);
-
     const links = pages.map((page) => {
         const styles = pathname?.startsWith(page.link)
             ? "inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500"
