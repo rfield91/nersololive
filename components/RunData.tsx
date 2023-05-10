@@ -1,4 +1,4 @@
-import { RunInfo } from "../common/types";
+import { RunInfo } from "common/types";
 import RunDisplay from "./RunDisplay";
 
 const RunData = ({ runInfo }: { runInfo: RunInfo }) => {

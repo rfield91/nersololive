@@ -1,4 +1,4 @@
-import { Run } from "../common/types";
+import { Run } from "common/types";
 
 const RunTimeDisplay = ({ run }: { run: Run }) => {
     if (run.status == "DIRTY")

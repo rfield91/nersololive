@@ -1,29 +1,32 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const ResultsNavigation = ({ activePage }: { activePage: string }) => {
+const ResultsNavigation = () => {
+    const pathname = usePathname();
+
     const pages = [
         {
             key: "classResults",
             name: "Class",
-            link: "/",
+            link: "/live/class",
         },
         {
             key: "paxResults",
             name: "PAX",
-            link: "/pax",
+            link: "/live/pax",
         },
         {
             key: "rawResults",
             name: "Raw",
-            link: "/raw",
+            link: "/live/raw",
         },
     ];
 
     const links = pages.map((page) => {
-        const styles =
-            page.key == activePage
-                ? "inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500"
-                : "inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300";
+        const styles = pathname?.startsWith(page.link)
+            ? "inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500"
+            : "inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300";
 
         return (
             <li className="mr-2" key={page.key}>

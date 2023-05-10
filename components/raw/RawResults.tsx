@@ -1,4 +1,4 @@
-import { RawResult } from "../common/types";
+import { RawResult } from "common/types";
 import RawEntry from "./RawEntry";
 
 const RawResults = ({ results }: { results: RawResult[] }) => {

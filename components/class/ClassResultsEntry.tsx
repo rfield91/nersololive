@@ -1,7 +1,8 @@
+"use client";
 import { useState } from "react";
-import { ClassResult } from "../common/types";
-import RunData from "./RunData";
-import RunTimeDisplay from "./RunTimeDisplay";
+import { ClassResult } from "common/types";
+import RunTimeDisplay from "components/RunTimeDisplay";
+import RunData from "components/RunData";
 
 const ClassResulsEntry = ({ entry }: { entry: ClassResult }) => {
     const [showRuns, setShowRuns] = useState(false);

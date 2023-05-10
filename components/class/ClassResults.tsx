@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { ClassResultsJson } from "../common/types";
-import IndividualClassResults from "./IndividualClassResults";
-import ClassLinks from "./ClassLinks";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+"use client";
+import IndividualClassResults from "components/class/IndividualClassResults";
+import { useLocalStorage } from "hooks/useLocalStorage";
+import { ClassResultsJson } from "common/types";
+import ClassLinks from "components/class/ClassLinks";
 
 const ClassResults = ({ results }: ClassResultsJson) => {
     const classes = Object.keys(results);
