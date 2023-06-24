@@ -17,6 +17,11 @@ const ResultsNavigation = ({ activePage }: { activePage: string }) => {
             name: "Raw",
             link: "/raw",
         },
+        {
+            key: "workRun",
+            name: "Work/Run",
+            link: "/workrun",
+        },
     ];
 
     const links = pages.map((page) => {
