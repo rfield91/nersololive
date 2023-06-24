@@ -61,3 +61,14 @@ export interface RawResult extends ResultSummary {
 export type RawResultsJson = {
     results: RawResult[];
 };
+
+export type RunWork = {
+    runWork: { [key: string]: RunWorkAssignment };
+    numberOfHeats: number;
+    timestamp: Date;
+};
+
+export type RunWorkAssignment = {
+    run: number;
+    work: number;
+};
