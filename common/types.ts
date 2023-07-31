@@ -21,6 +21,7 @@ export interface RunInfo {
 export interface ClassResult {
     car: string;
     carClass: string;
+    carClassGroup: string;
     color: string;
     name: string;
     number: string;
@@ -71,4 +72,15 @@ export type RunWork = {
 export type RunWorkAssignment = {
     run: number;
     work: number;
+};
+
+export type HeatProgression = {
+    heat: string;
+    runCounts: {
+        [key: string]: string[];
+    };
+    maxRuns: number;
+    totalRuns: number;
+    totalCompleted: number;
+    percentComplete: number;
 };
