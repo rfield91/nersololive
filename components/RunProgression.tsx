@@ -49,7 +49,7 @@ const RunProgression = ({
                 runCounts[numberOfRuns] = []
             }
 
-            if (numberOfRuns > maxRuns) {
+            if ((numberOfRuns > maxRuns) && parseInt(data.number) < 100) {
                 maxRuns = numberOfRuns;
             }
 
@@ -66,7 +66,7 @@ const RunProgression = ({
             maxRuns,
             totalRuns,
             totalCompleted,
-            percentComplete: (totalCompleted / totalRuns) * 100
+            percentComplete: Math.ceil((totalCompleted / totalRuns) * 100)
         }
     });
 
@@ -84,6 +84,7 @@ const RunProgression = ({
         <div className="mt-5 mb-5">
             {
                 heatsRunCounts.map((heat, key) => {
+                    const percentComplete = isNaN(heat.percentComplete) ? 0 : heat.percentComplete;
                     return (<div className="pb-7" key={key}>
                         <div className="flex content-center place-content-between">
                             <h5 className="mb-2 mt-0 text-2xl font-medium leading-tight text-primary">
@@ -95,7 +96,7 @@ const RunProgression = ({
                         </div>
                         <div className="">
                             <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                                <div className="bg-blue-600 text-sm font-large text-blue-100 text-center p-2 leading-none rounded-full" style={{ width: `${heat.percentComplete}%` }}> {heat.percentComplete.toFixed(0)}%</div>
+                                <div className="bg-blue-600 text-sm font-large text-blue-100 text-center p-2 leading-none rounded-full" style={{ width: `${percentComplete}%` }}> {percentComplete.toFixed(0)}%</div>
                             </div>
                         </div>
                     </div>)
