@@ -5,15 +5,18 @@ import ClassResulsEntry from "./ClassResultsEntry";
 const IndividualClassResults = ({
     className,
     results,
+    displayMode,
 }: {
     className: string;
     results: ClassResult[];
+    displayMode: "autocross" | "rallycross";
 }) => {
     const entries = results.map((entry) => {
         return (
             <ClassResulsEntry
                 entry={entry}
                 key={`${entry.name}-${entry.number}`}
+                displayMode={displayMode}
             />
         );
     });

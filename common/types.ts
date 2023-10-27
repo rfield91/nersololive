@@ -17,6 +17,9 @@ export interface RunInfo {
     toFirstInPax: number;
     toNextInPax: number;
     runs: Run[];
+    rallyCrossTime: number;
+    rallyCrossToFirst: number;
+    rallyCrossToNext: number;
 }
 export interface ClassResult {
     car: string;
