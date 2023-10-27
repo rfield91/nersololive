@@ -23,10 +23,6 @@ const RallycrossResultEntry = ({ entry }: { entry: ClassResult }) => {
                     <div>
                         <div className="text-xs text-slate-600">Class</div>
                         <div>{entry.position}</div>
-                        <div>
-                            <div className="text-xs text-slate-600">PAX</div>
-                            <div>{entry.paxPosition}</div>
-                        </div>
                     </div>
                 </div>
                 <div className="col-span-6">
@@ -64,8 +60,8 @@ const RallycrossResultEntry = ({ entry }: { entry: ClassResult }) => {
                     </div>
                 </div>
                 <div className="col-span-2 text-center">
-                    {entry.runInfo.toFirstInClass &&
-                    entry.runInfo.toNextInClass ? (
+                    {entry.runInfo.rallyCrossToFirst &&
+                    entry.runInfo.rallyCrossToFirst ? (
                         <>
                             <div className="text-xs text-slate-600">First</div>
                             <div className="text-sm">

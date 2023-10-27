@@ -45,7 +45,9 @@ export async function getServerSideProps() {
             );
 
             for (let i = 0; i < results[c].length; i++) {
-                if (i != 0) {
+                results[c][i].position = (i + 1).toString();
+
+                if (i > 0) {
                     results[c][i].runInfo.rallyCrossToFirst =
                         results[c][i].runInfo.rallyCrossTime -
                         results[c][0].runInfo.rallyCrossTime;
