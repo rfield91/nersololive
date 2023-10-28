@@ -1,10 +1,14 @@
-import { useState } from "react";
-import { ClassResultsJson } from "../common/types";
+import { ClassResult } from "../common/types";
 import IndividualClassResults from "./IndividualClassResults";
 import ClassLinks from "./ClassLinks";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
-const ClassResults = ({ results }: ClassResultsJson) => {
+type ClassResultsProps = {
+    results: { [name: string]: ClassResult[] };
+    displayMode: "autocross" | "rallycross";
+};
+
+const ClassResults = ({ results, displayMode }: ClassResultsProps) => {
     const classes = Object.keys(results);
 
     // const [filteredClasses, setFilteredClasses] = useState<string[]>([]);
@@ -40,6 +44,7 @@ const ClassResults = ({ results }: ClassResultsJson) => {
                 className={classKey}
                 results={results[classKey]}
                 key={classKey}
+                displayMode={displayMode}
             />
         );
     });
