@@ -1,7 +1,7 @@
 export default async function Live() {
   return (
     <main>
-      <p>Live</p>
+      <p>Live v2</p>
     </main>
   );
 }
