@@ -7,7 +7,7 @@ export default async function Home() {
   const navButtons = [
     {
       text: "Live Results",
-      link: "/live",
+      link: "/live/class",
       description: "Live results from the latest event",
       enabled: true,
     },
