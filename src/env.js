@@ -31,6 +31,9 @@ export const env = createEnv({
             .enum(["autocross", "rallycross"])
             .default("autocross"),
         EXPECTED_RUNS: z.coerce.number(),
+        DATABASE_HOST: z.string(),
+        DATABASE_USERNAME: z.string(),
+        DATABASE_PASSWORD: z.string(),
     },
 
     /**
@@ -58,6 +61,9 @@ export const env = createEnv({
         RUN_WORK_JSON_URL: process.env.RUN_WORK_JSON_URL,
         CLASS_RESULT_DISPLAY_MODE: process.env.CLASS_RESULT_DISPLAY_MODE,
         EXPECTED_RUNS: process.env.EXPECTED_RUNS,
+        DATABASE_HOST: process.env.DATABASE_HOST,
+        DATABASE_USERNAME: process.env.DATABASE_USERNAME,
+        DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
         // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
     },
     /**
