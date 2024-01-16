@@ -25,6 +25,7 @@ export default function Navigation({ pages }: { pages: NavigationItem[] }) {
             </li>
         );
     });
+
     return (
         <nav className="text-center text-sm font-medium text-white">
             <ol className="-mb-px flex flex-wrap">{navigationItems}</ol>
